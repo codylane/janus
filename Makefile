@@ -8,8 +8,11 @@ bootstrap:
 	@chmod 755 *.sh
 
 
-zip:
+remove_submodules:
 	@git submodule init
 	@git submodule update
-	@rsync -a janus janus.git
 	@find janus -name '.git' | xargs rm -rf
+	@rm -rf _backup
+	@rm -rf _temp
+	@[ -f .gitmodules ] && git rm -f .gitmodules || true
+	@rm -f .gitmodules
