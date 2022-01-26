@@ -12,3 +12,6 @@ mustache.vim
 
 # pathogen / vundle packages
 bundle
+
+.vimrc
+.gvimrc
