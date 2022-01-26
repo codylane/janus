@@ -6,3 +6,10 @@ bootstrap:
 	@cp pairing_tools/*.sh .
 	@rm -rf pairing_tools
 	@chmod 755 *.sh
+
+
+zip:
+	@git submodule init
+	@git submodule update
+	@rsync -a janus janus.git
+	@find janus -name '.git' | xargs rm -rf
