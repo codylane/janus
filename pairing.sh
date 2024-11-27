@@ -119,6 +119,61 @@ install_janus_plugins()
   [ -d vim-puppet ]         && _update_git_module vim-puppet         || git clone https://github.com/rodjek/vim-puppet.git
   [ -d vim-tmux-navigator ] && _update_git_module vim-tmux-navigator || git clone https://github.com/christoomey/vim-tmux-navigator.git
   [ -d vim-airline ]        && _update_git_module vim-airline        || git clone https://github.com/vim-airline/vim-airline.git
+  [ -d vim-arduino ]        && _update_git_module vim-arduino        || git clone https://github.com/stevearc/vim-arduino.git
+
+  cat > update-submodules.sh << 'EOS'
+#!/usr/bin/env bash
+
+BLACK="\033[0;30m"
+BLACKBOLD="\033[1;30m"
+RED="\033[0;31m"
+REDBOLD="\033[1;31m"
+GREEN="\033[0;32m"
+GREENBOLD="\033[1;32m"
+YELLOW="\033[0;33m"
+YELLOWBOLD="\033[1;33m"
+BLUE="\033[0;34m"
+BLUEBOLD="\033[1;34m"
+PURPLE="\033[0;35m"
+PURPLEBOLD="\033[1;35m"
+CYAN="\033[0;36m"
+CYANBOLD="\033[1;36m"
+WHITE="\033[0;37m"
+WHITEBOLD="\033[1;37m"
+
+
+info() {
+    MSG_COLOR="${MSG_COLOR:-${GREENBOLD}}"
+
+    echo -en "${MSG_COLOR}${@}\033[0m"
+    echo
+}
+
+
+update() {
+  find . -maxdepth 1 -type d ! -path '.' -and ! -path '..' | while read directory
+  do
+    pushd "${directory}" >>/dev/null
+
+    info "${GREENBOLD}" "Updating $(basename $directory)...."
+    git pull
+    echo
+    popd >>/dev/null
+  done
+}
+
+
+main() {
+    update
+}
+
+
+## main ##
+main
+EOS
+
+chmod 0755 update-submodules.sh
+./update-submodules.sh
 
 }
 
