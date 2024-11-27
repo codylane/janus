@@ -76,13 +76,6 @@ submodules:
     nerdcommenter:
     nerdtree:
     repeat:
-    snipmate:
-      dependencies:
-        - vim-addon-mw-utils
-        - tlib
-    vim-snippets:
-      dependencies:
-        - snipmate
     supertab:
     surround:
     syntastic:
