@@ -120,6 +120,7 @@ install_janus_plugins()
   [ -d vim-tmux-navigator ] && _update_git_module vim-tmux-navigator || git clone https://github.com/christoomey/vim-tmux-navigator.git
   [ -d vim-airline ]        && _update_git_module vim-airline        || git clone https://github.com/vim-airline/vim-airline.git
   [ -d vim-arduino ]        && _update_git_module vim-arduino        || git clone https://github.com/stevearc/vim-arduino.git
+  [ -d ctrlp ]              && _update_git_module ctrlp              || git clone https://github.com/ctrlpvim/ctrlp.vim.git
 
   cat > update-submodules.sh << 'EOS'
 #!/usr/bin/env bash
