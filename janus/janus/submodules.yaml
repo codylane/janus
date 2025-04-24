@@ -76,11 +76,9 @@ submodules:
     nerdcommenter:
     nerdtree:
     repeat:
-    supertab:
     surround:
     syntastic:
     tagbar:
-    tlib:
     unimpaired:
     vim-addon-mw-utils:
     vim-trailing-whitespace:
