@@ -113,6 +113,10 @@ install_janus()
   [ -d vim-tmux-navigator ] || git clone https://github.com/christoomey/vim-tmux-navigator.git
   [ -d vim-airline ]        || git clone  https://github.com/vim-airline/vim-airline.git
 
+  # 2024-04-24 added this because these no longer work
+  rm -rf ~/.vim/janus/vim/tools/tlib/
+  rm -rf ~/.vim/janus/vim/tools/supertab/
+
   mkdir -p ~/nvim
   mkdir -p ~/.config/nvim
   ln -sf ~/.vimrc ~/nvim/init.vim
@@ -142,9 +146,11 @@ install_janus()
     -i.bak                                                      \
     ~/.vimrc.after
 
-  # 2024-04-24 added this because these no longer work
-  rm -rf janus/vim/tools/tlib/
-  rm -rf janus/vim/tools/supertab/
+
+  echo
+  echo "Sucessfully installed janus!"
+  echo
+
 }
 
 install_ruby_build()
