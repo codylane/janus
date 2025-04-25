@@ -98,8 +98,6 @@ install_janus()
     return 1
   fi
 
-  [ -d ~/.janus ] && return 0 || true
-
   cd ~/.vim
   ./bootstrap.sh
   rm -rf janus/vim/tools/vimcss-color
