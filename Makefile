@@ -7,6 +7,9 @@ bootstrap:
 	@rm -rf pairing_tools
 	@chmod 755 *.sh
 
+install_janus: bootstrap
+	@. pairing.sh && install_janus
+
 
 remove_submodules:
 	@git submodule init
