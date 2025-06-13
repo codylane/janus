@@ -58,7 +58,6 @@ submodules:
   tools:
     ack:
     buffergator:
-    css-color:
     ctrlp:
     dispatch:
     easymotion:
