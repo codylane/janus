@@ -5,6 +5,7 @@ all: update_submodules remove_submodules install
 install:
 	@cd janus && \
 		rake
+	@[ -L "${HOME}/.vim" ] || ln -sf $${PWD}/janus $${HOME}/.vim
 
 
 remove_submodules:
