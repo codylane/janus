@@ -5,6 +5,7 @@ all: download_vim_modules install
 
 install:
 	ln -sf $${PWD}/janus $${HOME}/.vim 2>>/dev/null
+	cd ~/.vim && rake
 
 
 download_vim_modules:
@@ -15,5 +16,5 @@ docker_build:
 	docker build -t $(CONTAINER_ID) --no-cache .
 
 
-docker_run_container:
+docker_run:
 	docker run --rm -it --name $(CONTAINER_ID) $(CONTAINER_ID)

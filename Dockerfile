@@ -6,10 +6,14 @@ ENV container=docker
 # Install systemd and SSH
 RUN apt-get update && \
     apt-get install -y \
+    ack \
     curl \
     git  \
     make \
-    neovim && \
+    neovim \
+    rake \
+    ruby \
+    universal-ctags && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app && \
