@@ -3,6 +3,9 @@ _backup
 _temp
 .netrwhist
 
+# modules that are downloaded
+janus/janus/vim/tools/
+
 # Vimius file
 .vimius
 
