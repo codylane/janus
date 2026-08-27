@@ -15,3 +15,8 @@ RUN apt-get update && \
 RUN mkdir -p /app && \
     cd /app && \
         git clone https://github.com/codylane/janus.git
+
+RUN mkdir -p ~/nvim && \
+    mkdir -p ~/.config/nvim && \
+    ln -sf ~/.vimrc ~/nvim/init.vim && \
+    ln -sf ~/.vimrc ~/.config/nvim/init.vim

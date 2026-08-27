@@ -12,7 +12,7 @@ download_vim_modules:
 
 
 docker_build:
-	docker build -t $(CONTAINER_ID) .
+	docker build -t $(CONTAINER_ID) --no-cache .
 
 
 docker_run_container:
