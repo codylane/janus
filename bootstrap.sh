@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
+required_packages=
+
+command -v git   >>/dev/null || required_packages="${required_packages} git"
+command -v ruby  >>/dev/null || required_packages="${required_packages} ruby"
+command -v ctags >>/dev/null || required_packages="${required_packages} ctags"
+command -v ack   >>/dev/null || required_packages="${required_packages} ack"
+command -v rake  >>/dev/null || required_packages="${required_packages} rake"
+
+if [ -n "${required_packages}" ]; then
+  echo "Please make sure that you have the following packages installed [${required_packages}]"
+  exit 1
+fi
+
 # download all the janus tools
 mkdir -p janus/janus/vim/tools/
 
@@ -16,7 +29,7 @@ cd janus/janus/vim/tools/
 [ -d supertab ]                || git clone https://github.com/ervandew/supertab.git
 [ -d tlib_vim ]                || git clone https://github.com/tomtom/tlib_vim.git
 [ -d vim-unimpaired ]          || git clone https://github.com/tpope/vim-unimpaired.git
-[ -d Kwbd.vim ]                    || git clone https://github.com/rgarver/Kwbd.vim.git
+[ -d Kwbd ]                    || git clone https://github.com/rgarver/Kwbd.vim.git Kwbd
 [ -d nerdtree ]                || git clone https://github.com/scrooloose/nerdtree.git
 [ -d vim-buffergator ]         || git clone https://github.com/jeetsukumaran/vim-buffergator.git
 [ -d vim-repeat ]              || git clone https://github.com/tpope/vim-repeat.git
@@ -28,7 +41,7 @@ cd janus/janus/vim/tools/
 [ -d vim-gitgutter ]           || git clone https://github.com/airblade/vim-gitgutter.git
 [ -d vim-css-color ]           || git clone https://github.com/ap/vim-css-color.git
 [ -d vim-indent-object ]       || git clone https://github.com/michaeljsmith/vim-indent-object.git
-[ -d ctrlp.vim ]               || git clone https://github.com/ctrlpvim/ctrlp.vim.git
+[ -d ctrlp ]               || git clone https://github.com/ctrlpvim/ctrlp.vim.git ctrlp
 [ -d vim-multiple-cursors ]    || git clone https://github.com/terryma/vim-multiple-cursors.git
 [ -d vim-surround ]            || git clone https://github.com/tpope/vim-surround.git
 [ -d nerdcommenter ]           || git clone https://github.com/scrooloose/nerdcommenter.git
@@ -38,8 +51,8 @@ cd janus/janus/vim/tools/
 [ -d NrrwRgn ]                 || git clone https://github.com/chrisbra/NrrwRgn.git
 [ -d vim-eunuch ]              || git clone https://github.com/tpope/vim-eunuch.git
 [ -d vim-trailing-whitespace ] || git clone https://github.com/bronson/vim-trailing-whitespace.git
-[ -d ack.vim ]                     || git clone https://github.com/mileszs/ack.vim.git
-[ -d gundo.vim ]               || git clone https://github.com/sjl/gundo.vim.git
+[ -d ack ]                     || git clone https://github.com/mileszs/ack.vim.git ack
+[ -d gundo ]               || git clone https://github.com/sjl/gundo.vim.git gundo
 [ -d vimwiki ]                 || git clone https://github.com/vim-scripts/vimwiki.git
 [ -d vim-endwise ]             || git clone https://github.com/tpope/vim-endwise.git
 [ -d vim-visualstar ]          || git clone https://github.com/thinca/vim-visualstar.git
@@ -49,3 +62,8 @@ cd janus/janus/vim/tools/
 [ -d ZoomWin ]                 || git clone https://github.com/sh-dude/ZoomWin.git
 
 cd - >>/dev/null
+
+cd ${HOME}
+curl -kLO https://raw.githubusercontent.com/codylane/dotfiles/master/.vimrc.after
+curl -kLO https://raw.githubusercontent.com/codylane/dotfiles/master/.vimrc.before
+
