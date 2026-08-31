@@ -66,4 +66,12 @@ cd - >>/dev/null
 cd ${HOME}
 curl -kLO https://raw.githubusercontent.com/codylane/dotfiles/master/.vimrc.after
 curl -kLO https://raw.githubusercontent.com/codylane/dotfiles/master/.vimrc.before
+cd - >>/dev/null
 
+mkdir -p ~/nvim
+mkdir -p ~/.config/nvim
+ln -sf ~/.vimrc ~/nvim/init.vim
+ln -sf ~/.vimrc ~/.config/nvim/init.vim
+
+cp janus/janus/vim/vimrc ~/.vimrc
+cp janus/janus/vim/gvimrc ~/.gvimrc
