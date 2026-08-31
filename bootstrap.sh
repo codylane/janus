@@ -73,5 +73,5 @@ mkdir -p ~/.config/nvim
 ln -sf ~/.vimrc ~/nvim/init.vim
 ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
-cp janus/janus/vim/vimrc ~/.vimrc
-cp janus/janus/vim/gvimrc ~/.gvimrc
+ln -s $PWD/janus/janus/vim/vimrc  ~/.vimrc
+ln -s $PWD/janus/janus/vim/gvimrc ~/.gvimrc
